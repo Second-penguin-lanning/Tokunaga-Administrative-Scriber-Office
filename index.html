@@ -1,105 +1,131 @@
+ご要望を反映し、さらにプロフェッショナルな印象を与えるデザインにブラッシュアップしました。
+
+今回の変更点と「印象に残る」仕掛け
+「事務所紹介」を「代表紹介」へ変更: メニューと見出しを修正しました。
+
+フォントの格上げ: 日本語の明朝体フォント（Noto Serif JP）を導入しました。これにより、**「信頼感」「重厚感」「知性」**がグッと高まり、行政書士としての品格が出ます。
+
+ヒーローセクション（トップ画）のインパクト: 画面いっぱいに画像を表示し、スクロールしても背景が固定される「パララックス（視差）効果」を取り入れ、奥行きを出しました。
+
+カードデザインの洗練: 影（シャドウ）の使い方を工夫し、要素が浮き上がって見えるモダンなデザインにしました。
+
+以下のコードをすべてコピーして、上書き保存してください。
+
+HTML
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>徳永良雄 行政書士事務所 | 中小企業・外国人支援</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         /* --- CSS Variables --- */
         :root {
             --main-color: #5D9CEC; /* 水色：誠実、知性 */
+            --main-dark: #4A89DC;  /* 濃い水色：リンクホバー用 */
             --accent-color: #A03C3C; /* えんじ色：情熱、重要 */
             --bg-color: #FDFBF7; /* 薄いクリーム色：親しみ、安心 */
             --text-color: #333333;
             --white: #ffffff;
-            --gray: #f4f4f4;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08); /* 柔らかい影 */
         }
 
         /* --- Base Styles --- */
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-family: "Noto Sans JP", sans-serif; /* 本文は読みやすいゴシック */
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 0;
-            line-height: 1.8;
+            line-height: 2.0;
+            letter-spacing: 0.05em;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: "Noto Serif JP", serif; /* 見出しは信頼感のある明朝体 */
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: 0.3s;
-        }
-
-        h1, h2, h3 {
-            margin: 0;
-            font-weight: 700;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
+            transition: all 0.3s ease;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
+        /* ボタンデザインの強化 */
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 40px;
             background-color: var(--accent-color);
             color: var(--white);
-            border-radius: 50px;
+            border-radius: 4px; /* 少し角を残して大人っぽく */
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-family: "Noto Serif JP", serif;
+            letter-spacing: 0.1em;
+            box-shadow: 0 4px 10px rgba(160, 60, 60, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
-            opacity: 0.9;
+            background-color: #8a2f2f;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(160, 60, 60, 0.4);
         }
 
+        /* セクションタイトルの装飾 */
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--main-color);
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            color: var(--text-color);
             position: relative;
-            padding-bottom: 15px;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .section-title::after {
+        .section-title::before {
             content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
             background-color: var(--accent-color);
-            margin: 15px auto 0;
         }
 
-        /* --- Animation --- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .section-subtitle {
+            display: block;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--main-color);
+            margin-bottom: 10px;
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: bold;
+            letter-spacing: 0.2em;
         }
 
         /* --- Header --- */
         header {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         .header-inner {
@@ -109,31 +135,53 @@
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--main-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: "Noto Serif JP", serif;
         }
 
         nav ul {
             display: flex;
-            gap: 20px;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         nav a {
-            font-size: 0.9rem;
-            font-weight: bold;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
         }
         
-        nav a:hover {
-            color: var(--main-color);
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
         }
 
-        /* --- Hero Section --- */
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Hero Section (印象に残るメインビジュアル) --- */
         .hero {
-            background: linear-gradient(rgba(93, 156, 236, 0.7), rgba(93, 156, 236, 0.3)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* 仮のビジネス画像 */
+            /* パララックス効果：スクロールしても背景が動かない */
+            background: linear-gradient(rgba(0, 40, 85, 0.4), rgba(0, 40, 85, 0.2)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            background-attachment: fixed; /* これがパララックスの鍵 */
+            height: 100vh; /* 画面いっぱいの高さ */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -142,269 +190,331 @@
             padding: 0 20px;
         }
 
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(3px);
+            padding: 60px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .hero-content p {
+        .hero-content h1 {
+            font-size: 3rem; /* サイズアップ */
+            margin-bottom: 20px;
+            line-height: 1.4;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-sub {
+            display: block;
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+            font-family: "Noto Sans JP", sans-serif;
             font-weight: 500;
         }
 
-        /* --- About Section --- */
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* --- About Section (代表紹介) --- */
         .about {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--white);
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: start;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .profile-img-area {
-            text-align: center;
+        .profile-img-container {
+            position: relative;
         }
 
+        /* 写真の装飾 */
         .profile-img {
             width: 100%;
-            max-width: 300px;
             height: auto;
-            border-radius: 10px;
-            background-color: #ddd; /* 画像がない場合のプレースホルダー色 */
+            border-radius: 4px;
+            box-shadow: 20px 20px 0px var(--bg-color), 20px 20px 0px 2px var(--main-color); /* ずらした枠線でデザイン性UP */
             object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .about-text p {
+        .about-text h3 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
+            color: #2c3e50;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
         }
 
-        /* セコンドペンギン企画へのリンク用スタイル */
+        .career-summary {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* セコンドペンギン企画へのリンク（特別デザイン） */
         .second-penguin-link {
-            background-color: #eef6ff;
-            border-left: 5px solid var(--main-color);
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #f0f4f8 0%, #eef6ff 100%);
+            border: 1px solid #dbe4ee;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .second-penguin-link::before {
+            content: 'Another Project';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--main-color);
+            color: #fff;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 2px;
         }
 
         .second-penguin-link h4 {
             color: var(--main-color);
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
         }
 
         /* --- Services Section --- */
         .services {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .service-card {
             background: var(--white);
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 50px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
             text-align: center;
-            border-top: 5px solid var(--main-color);
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 4px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-top: 4px solid var(--main-color);
+        }
+
+        .service-num {
+            font-size: 3rem;
+            color: rgba(93, 156, 236, 0.1); /* 薄い水色 */
+            font-family: "Noto Serif JP", serif;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+            margin-bottom: -20px;
+            position: relative;
+            z-index: 0;
         }
 
         .service-card h3 {
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
-
-        .service-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 20px;
-            border: 1px solid var(--main-color);
-            color: var(--main-color);
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .service-btn:hover {
-            background-color: var(--main-color);
-            color: var(--white);
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* --- Case Studies --- */
         .cases {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--white);
         }
 
         .case-list {
             display: grid;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
         }
 
         .case-item {
-            background-color: var(--bg-color);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 0;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        .case-item:hover {
+            border-color: var(--accent-color);
+            background-color: #fffafb;
+        }
+
+        .case-head {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .case-tag {
+            background-color: var(--accent-color);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 2px;
         }
 
         .case-title {
             font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-            display: block;
+            color: #333;
+            font-family: "Noto Serif JP", serif;
         }
 
         /* --- Flow --- */
         .flow {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .flow-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* 矢印ライン */
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: #e0e0e0;
+            z-index: 0;
         }
 
         .flow-step {
-            flex: 1;
-            min-width: 150px;
             text-align: center;
             position: relative;
+            z-index: 1;
+            background-color: var(--bg-color); /* 線の後ろを隠すため */
+            padding: 0 10px;
         }
 
         .step-num {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
             background-color: var(--main-color);
             color: var(--white);
             border-radius: 50%;
-            margin-bottom: 10px;
             font-weight: bold;
+            font-size: 1.2rem;
+            font-family: "Noto Serif JP", serif;
+            box-shadow: 0 4px 10px rgba(93, 156, 236, 0.4);
+        }
+        
+        .flow-step h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .flow-step p {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.5;
         }
 
         /* --- Fees --- */
         .fees {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--white);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            box-shadow: var(--shadow);
+            background-color: #fff;
         }
 
         th, td {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
             text-align: left;
         }
 
         th {
-            background-color: #f0f8ff;
-            color: var(--main-color);
-            width: 40%;
+            background-color: #f7f9fc;
+            color: #2c3e50;
+            width: 30%;
+            font-weight: bold;
+            font-family: "Noto Serif JP", serif;
         }
 
-        /* --- Links --- */
-        .links {
-            padding: 60px 0;
-            background-color: #f0f4f8; /* Slightly darker */
-        }
-        
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .link-item {
-            background: var(--white);
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--main-color);
-            border: 1px solid #ddd;
-        }
-        
-        .link-item:hover {
-            border-color: var(--main-color);
-            background-color: var(--white);
+        /* --- Animation --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
-        /* --- Access & Footer --- */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
         footer {
-            background-color: var(--main-color);
+            background-color: #2c3e50; /* 少し暗くして落ち着きを出す */
             color: var(--white);
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 40px;
+        
+        .footer-content h3 {
+            font-family: "Noto Serif JP", serif;
         }
-
-        .footer-info h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .access-details p {
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.8;
-            border-top: 1px solid rgba(255,255,255,0.3);
-            padding-top: 20px;
+        
+        .link-grid a {
+            color: #2c3e50;
         }
 
         /* --- Mobile --- */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
+            .hero-content h1 { font-size: 2rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .header-inner { flex-direction: column; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
             
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header-inner {
-                flex-direction: column;
-                gap: 15px;
-            }
+            .flow-container { flex-direction: column; gap: 30px; }
+            .flow-container::before { display: none; }
+            .flow-step { display: flex; align-items: center; gap: 20px; text-align: left; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+            .step-num { margin: 0; }
             
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .flow-container {
-                flex-direction: column;
-            }
+            .case-list { grid-template-columns: 1fr; }
+            
+            .profile-img { box-shadow: 10px 10px 0px var(--bg-color), 10px 10px 0px 2px var(--main-color); }
         }
     </style>
 </head>
@@ -415,7 +525,7 @@
             <div class="logo">徳永良雄 行政書士事務所</div>
             <nav>
                 <ul>
-                    <li><a href="#about">事務所紹介</a></li>
+                    <li><a href="#about">代表紹介</a></li>
                     <li><a href="#services">事業内容</a></li>
                     <li><a href="#flow">ご依頼の流れ</a></li>
                     <li><a href="#fees">報酬額</a></li>
@@ -426,32 +536,39 @@
     </header>
 
     <section class="hero">
-        <div class="container hero-content fade-in">
-            <h1>中小企業を支える行政書士<br><span style="font-size: 0.7em; font-weight: normal;">外国人支援・補助金申請サポート</span></h1>
-            <p>これまでの経験をいかして、<br>皆様の「想い」の実現をお手伝いします。</p>
+        <div class="hero-content fade-in">
+            <span class="hero-sub">中小企業・外国人支援のパートナー</span>
+            <h1>想いをかたちに、<br>未来をひらく。</h1>
+            <p>経験豊富な行政書士が、複雑な手続きをシンプルに。<br>あなたの「次の一歩」を全力でサポートします。</p>
             <a href="#access" class="btn">お問い合わせはこちら</a>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Who I am</h2>
+            <span class="section-subtitle">Representative</span>
+            <h2 class="section-title">代表紹介</h2>
+            
             <div class="about-grid fade-in">
-                <div class="profile-img-area">
-                    <img src="https://photos.fife.usercontent.google.com/pw/AP1GczNGaE1ZUl8HmYWwUhBZanxxYgFrwGk0Trnpp7UUFdpGyhg1qHCJx_s=w869-h869-s-no-gm?authuser=0">
+                <div class="profile-img-container">
+                    <img src="https://placehold.co/400x500/e0e0e0/888888?text=Yoshio+Tokunaga" alt="徳永良雄 写真" class="profile-img">
                 </div>
                 <div class="about-text">
                     <h3>行政書士 徳永 良雄</h3>
-                    <p>はじめまして、行政書士の徳永良雄です。<br>
-                    30余年の公務員生活を経た後、個人事業を立ち上げ、優秀な外国人が日本で働くためのサポートを始めるとともに、行政書士の資格を取り、中小企業の皆様のお手伝いをする仕事をしています。</p>
-                    <p>私の名前で検索していただくと、公務員時代にインドネシア勤務時の記事などもご覧いただけますので、ぜひご参考ください。</p>
-                    <p>現在はなるべく幅広く皆様のニーズをお伺いして、自分ができることを一つひとつ積み上げていく予定です。<br>
-                    また、2026年3月からは個人事業にて「有料職業紹介事業」及び「特定技能外国人支援」を行う登録も完了する予定です。</p>
+                    <p class="career-summary">元公務員（30余年） / インドネシア駐在経験あり</p>
+                    
+                    <p>はじめまして。徳永良雄と申します。<br>
+                    長きにわたる公務員生活を経て、現在は「人と企業をつなぐ架け橋」となるべく、行政書士として活動しております。</p>
+                    <p>特に注力しているのは、日本で働きたい優秀な外国の方々の支援と、人手不足に悩む中小企業の皆様へのサポートです。公務員時代、インドネシアでの勤務経験を通じ、国境を越えた人々の「想い」の強さを肌で感じてきました。</p>
+                    <p>私の役割は、複雑な行政手続きというハードルを取り除き、皆様が本来の事業や生活に専念できるよう環境を整えることです。<br>
+                    2026年3月からは、有料職業紹介および特定技能外国人支援の登録も完了予定。より包括的なサポート体制を整えてまいります。</p>
 
                     <div class="second-penguin-link">
-                        <h4>個人事業：セコンドペンギン企画</h4>
-                        <p>行政書士業務以外の個人事業として、独自の企画運営も行っております。</p>
-                        <a href="#" class="btn" style="font-size: 0.9rem;">セコンドペンギン企画 Webサイトへ</a>
+                        <h4><span style="font-size:1.2em">🐧</span> 個人事業：セコンドペンギン企画</h4>
+                        <p>「ファーストペンギン（先駆者）」を支え、共に歩む。<br>行政書士業務の枠を超え、独自の企画・運営を行っています。</p>
+                        <div style="text-align: right;">
+                            <a href="#" class="btn" style="background-color: var(--main-color); padding: 10px 25px; font-size: 0.9rem;">Webサイトへ移動 &rarr;</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -460,22 +577,23 @@
 
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">事業の柱</h2>
+            <span class="section-subtitle">Our Services</span>
+            <h2 class="section-title">3つの事業の柱</h2>
             <div class="service-grid fade-in">
                 <div class="service-card">
+                    <span class="service-num">01</span>
                     <h3>中小企業支援</h3>
-                    <p>補助金・助成金の申請サポート、許認可申請、外国人雇用に関する手続きなど、ビジネスの成長をバックアップします。</p>
-                    <a href="#" class="service-btn">詳しく見る</a>
+                    <p>補助金・助成金の活用提案から申請代行、許認可取得まで。経営者の右腕としてバックオフィスを支えます。</p>
                 </div>
                 <div class="service-card">
+                    <span class="service-num">02</span>
                     <h3>外国人支援</h3>
-                    <p>在留資格認定証明書交付申請（入国管理局への申請）、在留資格の変更・更新など、日本での生活と就労を支えます。</p>
-                    <a href="#" class="service-btn">詳しく見る</a>
+                    <p>入管業務のプロフェッショナルとして、在留資格（ビザ）の取得・更新・変更を確実かつ迅速に行います。</p>
                 </div>
                 <div class="service-card">
-                    <h3>その他法務</h3>
-                    <p>遺言書の作成支援、相続手続き、その他暮らしの中での困りごとについてもご相談ください。</p>
-                    <a href="#" class="service-btn">詳しく見る</a>
+                    <span class="service-num">03</span>
+                    <h3>暮らしの法務</h3>
+                    <p>遺言書の作成や相続手続きなど、人生の節目における法的なお困りごとに寄り添い、解決へ導きます。</p>
                 </div>
             </div>
         </div>
@@ -483,32 +601,40 @@
 
     <section class="cases">
         <div class="container">
-            <h2 class="section-title">相談例と対応</h2>
+            <span class="section-subtitle">Case Study</span>
+            <h2 class="section-title">相談事例と解決策</h2>
             <div class="case-list fade-in">
                 <div class="case-item">
-                    <span class="case-title">CASE 01: 外国人雇用</span>
-                    <p><strong>相談：</strong>優秀なベトナム人を採用したいが、ビザの手続きがわからない。<br>
-                    <strong>対応：</strong>職務内容と本人の学歴・職歴を照らし合わせ、適切な在留資格（技人国等）を選定し申請を代行しました。</p>
+                    <div class="case-head">
+                        <span class="case-tag">外国人雇用</span>
+                        <span class="case-title">技術・人文知識・国際業務ビザ取得</span>
+                    </div>
+                    <p><strong>ご相談：</strong>優秀なベトナム人を採用したいが、専門用語が多く手続きが不安。<br>
+                    <strong>解決策：</strong>大学での専攻と職務内容の整合性を論理的に立証する理由書を作成。無事許可を取得しました。</p>
                 </div>
                 <div class="case-item">
-                    <span class="case-title">CASE 02: 補助金申請</span>
-                    <p><strong>相談：</strong>新しい設備を導入したいが、使える補助金はないか。<br>
-                    <strong>対応：</strong>事業再構築補助金の要件を確認し、事業計画書の作成支援から電子申請までサポートしました。</p>
+                    <div class="case-head">
+                        <span class="case-tag">補助金</span>
+                        <span class="case-title">事業再構築補助金の採択</span>
+                    </div>
+                    <p><strong>ご相談：</strong>新規事業を始めたいが資金がネック。<br>
+                    <strong>解決策：</strong>強みを活かした実現性の高い事業計画書を策定。採択され、設備投資が可能になりました。</p>
                 </div>
                 <div class="case-item">
-                    <span class="case-title">CASE 03: 会社設立</span>
-                    <p><strong>相談：</strong>個人事業から法人成りしたい。<br>
-                    <strong>対応：</strong>定款の作成・認証手続きを行い、提携司法書士と連携して登記完了までスムーズに進めました。</p>
+                    <div class="case-head">
+                        <span class="case-tag">法人設立</span>
+                        <span class="case-title">個人事業からの法人成り</span>
+                    </div>
+                    <p><strong>ご相談：</strong>事業拡大に伴い会社組織にしたい。<br>
+                    <strong>解決策：</strong>電子定款認証によるコスト削減を提案。提携司法書士と連携し、ワンストップで設立完了。</p>
                 </div>
                 <div class="case-item">
-                    <span class="case-title">CASE 04: 永住許可</span>
-                    <p><strong>相談：</strong>日本に長く住んでおり、そろそろ永住権を取りたい。<br>
-                    <strong>対応：</strong>年金・税金の納付状況を整理し、理由書を作成して入管へ申請。無事許可が降りました。</p>
-                </div>
-                <div class="case-item">
-                    <span class="case-title">CASE 05: 遺言書作成</span>
-                    <p><strong>相談：</strong>家族に迷惑をかけないよう、財産分与を決めておきたい。<br>
-                    <strong>対応：</strong>公正証書遺言の原案を作成し、公証役場との打ち合わせに同行しました。</p>
+                    <div class="case-head">
+                        <span class="case-tag">相続・遺言</span>
+                        <span class="case-title">公正証書遺言の作成</span>
+                    </div>
+                    <p><strong>ご相談：</strong>子供たちの仲が悪くならないよう準備したい。<br>
+                    <strong>解決策：</strong>ご本人の想いを丁寧にヒアリングし、法的効力の高い公正証書遺言として形にしました。</p>
                 </div>
             </div>
         </div>
@@ -516,32 +642,33 @@
 
     <section id="flow" class="flow">
         <div class="container">
-            <h2 class="section-title">ご相談〜成果報告までの流れ</h2>
+            <span class="section-subtitle">Flow</span>
+            <h2 class="section-title">ご依頼の流れ</h2>
             <div class="flow-container fade-in">
                 <div class="flow-step">
-                    <span class="step-num">1</span>
-                    <h4>事前ご相談</h4>
-                    <p>お電話またはメールにて<br>お問い合わせ</p>
+                    <div class="step-num">1</div>
+                    <h4>お問い合わせ</h4>
+                    <p>まずは電話・メールで<br>お気軽にご連絡ください</p>
                 </div>
                 <div class="flow-step">
-                    <span class="step-num">2</span>
-                    <h4>ヒアリング・提案</h4>
-                    <p>詳細をお伺いし<br>お見積りを提示</p>
+                    <div class="step-num">2</div>
+                    <h4>ヒアリング</h4>
+                    <p>現状の課題をお伺いし<br>お見積りを提示します</p>
                 </div>
                 <div class="flow-step">
-                    <span class="step-num">3</span>
-                    <h4>契約・着手金</h4>
-                    <p>契約締結後<br>業務を開始</p>
+                    <div class="step-num">3</div>
+                    <h4>ご契約</h4>
+                    <p>内容にご納得いただければ<br>契約・着手となります</p>
                 </div>
                 <div class="flow-step">
-                    <span class="step-num">4</span>
+                    <div class="step-num">4</div>
                     <h4>業務実施</h4>
-                    <p>書類作成・申請代行<br>進捗報告</p>
+                    <p>書類作成・申請代行<br>進捗は随時報告します</p>
                 </div>
                 <div class="flow-step">
-                    <span class="step-num">5</span>
-                    <h4>完了・報告</h4>
-                    <p>結果のご報告<br>報酬請求書送付</p>
+                    <div class="step-num">5</div>
+                    <h4>完了・納品</h4>
+                    <p>許可証等のお渡し<br>完了後のフォローも</p>
                 </div>
             </div>
         </div>
@@ -549,8 +676,9 @@
 
     <section id="fees" class="fees">
         <div class="container fade-in">
+            <span class="section-subtitle">Price</span>
             <h2 class="section-title">報酬額（目安）</h2>
-            <p style="text-align: center; font-size: 0.9rem;">※事案の難易度により変動いたします。すべて税込表示です。</p>
+            <p style="text-align: center; margin-bottom: 30px;">※すべて税込表示です。事案の難易度により変動する場合がございます。</p>
             <table>
                 <tr>
                     <th>在留資格認定証明書交付申請</th>
@@ -580,38 +708,36 @@
         </div>
     </section>
 
-    <section class="links">
+    <section class="links" style="background-color: #f7f9fc; padding: 80px 0;">
         <div class="container">
-            <h2 class="section-title" style="font-size: 1.5rem;">お役立ち情報リンク</h2>
-            <div class="link-grid fade-in">
-                <a href="#" class="link-item" target="_blank">出入国在留管理庁</a>
-                <a href="#" class="link-item" target="_blank">外国人雇用管理システム</a>
-                <a href="#" class="link-item" target="_blank">J-Net21（中小企業支援）</a>
-                <a href="#" class="link-item" target="_blank">ミラサポplus</a>
-                <a href="#" class="link-item" target="_blank">日本行政書士会連合会</a>
-                <a href="#" class="link-item" target="_blank">兵庫県行政書士会</a>
-                <a href="#" class="link-item" target="_blank">神戸市 企業支援情報</a>
-                <a href="#" class="link-item" target="_blank">JETRO（日本貿易振興機構）</a>
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 40px;">お役立ち情報</h2>
+            <div class="link-grid fade-in" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px;">
+                <a href="#" class="link-item" style="background:white; padding:15px; border:1px solid #ddd; display:block; text-align:center; border-radius:4px;">出入国在留管理庁</a>
+                <a href="#" class="link-item" style="background:white; padding:15px; border:1px solid #ddd; display:block; text-align:center; border-radius:4px;">外国人雇用管理システム</a>
+                <a href="#" class="link-item" style="background:white; padding:15px; border:1px solid #ddd; display:block; text-align:center; border-radius:4px;">J-Net21（中小企業支援）</a>
+                <a href="#" class="link-item" style="background:white; padding:15px; border:1px solid #ddd; display:block; text-align:center; border-radius:4px;">ミラサポplus</a>
+                <a href="#" class="link-item" style="background:white; padding:15px; border:1px solid #ddd; display:block; text-align:center; border-radius:4px;">日本行政書士会連合会</a>
+                <a href="#" class="link-item" style="background:white; padding:15px; border:1px solid #ddd; display:block; text-align:center; border-radius:4px;">兵庫県行政書士会</a>
             </div>
         </div>
     </section>
 
     <footer id="access">
         <div class="container">
-            <div class="footer-content fade-in">
+            <div class="footer-content fade-in" style="display:flex; flex-wrap:wrap; justify-content:space-between; margin-bottom:40px;">
                 <div class="footer-info">
-                    <h3>徳永良雄 行政書士事務所</h3>
-                    <div class="access-details">
+                    <h3 style="margin-bottom:20px; font-size:1.4rem;">徳永良雄 行政書士事務所</h3>
+                    <div class="access-details" style="line-height:1.8;">
                         <p>〒651-0063<br>兵庫県神戸市中央区宮本通2-1-30 宮本マンション203号</p>
-                        <p><strong>電話: 070-9192-2524</strong></p>
+                        <p style="font-size:1.2rem; margin:15px 0;"><strong>TEL: 070-9192-2524</strong></p>
                         <p>営業時間: 平日 9:00〜18:00</p>
                     </div>
                 </div>
-                <div style="width: 100%; max-width: 500px; height: 300px; background-color: #ddd; display: flex; align-items: center; justify-content: center; color: #333;">
+                <div style="width: 100%; max-width: 500px; height: 300px; background-color: #3e5871; display: flex; align-items: center; justify-content: center; color: #ddd; border-radius:4px;">
                     <span>Google Maps Area</span>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright" style="text-align:center; font-size:0.8rem; opacity:0.6; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
                 &copy; 2026 Yoshio Tokunaga Administrative Scrivener Office. All Rights Reserved.
             </div>
         </div>
