@@ -1,312 +1,236 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>德永良雄 行政書士事務所 | セコンドペンギン企画</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style>
-        :root {
-            --main-blue: #005bac;
-            --accent-green: #006400;
-            --sky-blue: #e0f4ff;
-            --text-color: #333;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>德永良雄 行政書士事務所｜神戸市東灘区 神戸ファッションマート</title>
 
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background-color: var(--sky-blue);
-            overflow-x: hidden;
-        }
+<meta name="description" content="神戸市東灘区（神戸ファッションマート）の德永良雄行政書士事務所。建設業許可、在留資格（ビザ）、相続手続きを法令に基づき丁寧にサポートします。">
+<meta name="robots" content="index,follow">
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: var(--main-blue);
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            margin-left: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,91,172,0.6), rgba(0,91,172,0.4)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 5%;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero .contact-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            color: var(--text-color);
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .hero .contact-info {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .hero .contact-info a {
-            color: var(--main-blue);
-            text-decoration: none;
-        }
-
-        .hero .note {
-            font-size: 0.65rem; /* 極めて小さく */
-            color: #666;
-            margin-top: 15px;
-            display: block;
-        }
-
-        /* Office Profile Section */
-        .profile-section {
-            background: var(--white);
-            padding: 80px 10%;
-        }
-
-        .office-info {
-            margin-bottom: 60px;
-            border-bottom: 2px solid var(--sky-blue);
-            padding-bottom: 40px;
-        }
-
-        .map-link {
-            font-size: 0.9rem;
-            color: var(--main-blue);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-top: 5px;
-        }
-
-        .map-link:hover { text-decoration: underline; }
-
-        /* Representative Section */
-        .representative {
-            display: flex;
-            gap: 50px;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .rep-photo {
-            flex: 0 0 250px;
-            height: 320px;
-            background: #eee;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid #ddd;
-        }
-
-        .rep-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .rep-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .rep-text h3 {
-            font-size: 1.5rem;
-            color: var(--main-blue);
-            margin-bottom: 15px;
-        }
-
-        /* Common Styles */
-        section { padding: 80px 10%; background: var(--white); margin: 20px 0; }
-        h2 { text-align: center; color: var(--main-blue); margin-bottom: 40px; }
-        .btn {
-            display: inline-block;
-            padding: 12px 40px;
-            background: var(--main-blue);
-            color: white !important;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); background: var(--accent-green); }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .representative { flex-direction: column; align-items: center; text-align: center; }
-            .rep-photo { flex: 0 0 200px; height: 260px; }
-        }
-    </style>
+<style>
+:root{
+    --main:#005bac;
+    --accent:#006400;
+    --bg:#e0f4ff;
+    --text:#333;
+    --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+    font-family:'Noto Sans JP',sans-serif;
+    line-height:1.8;
+    color:var(--text);
+    background:var(--bg);
+}
+header{
+    background:#fff;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+header strong{color:var(--main);}
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:bold;
+    color:#333;
+}
+section{
+    padding:80px 10%;
+    background:#fff;
+    margin:20px 0;
+}
+h2{
+    text-align:center;
+    color:var(--main);
+    margin-bottom:40px;
+}
+.hero{
+    height:85vh;
+    background:
+      linear-gradient(rgba(0,91,172,.6),rgba(0,91,172,.4)),
+      url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072")
+      center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+}
+.hero h1{
+    font-size:2.6rem;
+    margin-bottom:20px;
+}
+.box{
+    background:#fff;
+    color:#333;
+    padding:30px;
+    border-radius:15px;
+    max-width:650px;
+    margin:auto;
+}
+.btn{
+    display:inline-block;
+    padding:12px 40px;
+    background:var(--main);
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+.btn:hover{background:var(--accent);}
+.notice{
+    font-size:.8rem;
+    color:#555;
+    margin-top:15px;
+}
+form{
+    max-width:700px;
+    margin:auto;
+}
+label{
+    display:block;
+    margin-top:20px;
+    font-weight:bold;
+}
+input,textarea,select{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+textarea{min-height:150px;}
+footer{
+    background:var(--main);
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    font-size:.85rem;
+}
+@media(max-width:768px){
+    .hero h1{font-size:1.8rem;}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <a href="#" class="logo">
-        <img src="logo.png" alt="ロゴ">
-        <span>セコンドペンギン企画</span>
-    </a>
-    <nav>
-        <a href="#profile">事務所概要</a>
-        <a href="#business">サービス</a>
-        <a href="#company">会社概要</a>
-    </nav>
+<strong>德永良雄 行政書士事務所</strong>
+<nav aria-label="メインナビゲーション">
+    <a href="#profile">事務所概要</a>
+    <a href="#business">業務内容</a>
+    <a href="#contact">お問い合わせ</a>
+</nav>
 </header>
 
 <section class="hero">
-    <div class="fade-in">
-        <h1>お気軽にご相談下さい</h1>
-        <div class="contact-box">
-            <p style="margin-bottom: 15px; font-weight: bold;">初回相談・お問い合わせ窓口</p>
-            <div class="contact-info">
-                携帯：<a href="tel:090-0000-0000">090-XXXX-XXXX</a><br>
-                Eメール：<a href="mailto:example@mail.com">example@mail.com</a>
-            </div>
-            <a href="#contact" class="btn">お問い合わせフォームへ</a>
-            <span class="note">※緊急の場合を除き、最初のご連絡はEメールでお願いします。</span>
-        </div>
-    </div>
+<div>
+<h1>法令に基づく<br>確かな行政手続きサポート</h1>
+<div class="box">
+<p><strong>初回相談窓口</strong></p>
+<p>
+TEL：090-0000-0000<br>
+Mail：example@mail.com
+</p>
+<a href="#contact" class="btn">お問い合わせフォーム</a>
+<p class="notice">
+※ ご相談内容によっては対応できない場合があります。<br>
+※ 紛争性のある案件には対応できません。
+</p>
+</div>
+</div>
 </section>
 
-<section id="profile" class="profile-section fade-in">
-    <div class="office-info">
-        <h2>事務所概要</h2>
-        <div style="text-align: center; font-size: 1.1rem;">
-            <p><strong>事務所名：</strong> 德永良雄 行政書士事務所</p>
-            <p><strong>住所：</strong> 兵庫県神戸市東灘区向洋町中6-9 六甲アイランドファッションマート 4N-07-01</p>
-            <a href="https://maps.google.com/?q=六甲アイランドファッションマート" target="_blank" class="map-link">
-                <span class="material-symbols-outlined" style="font-size: 18px;">location_on</span> Googleマップで見る
-            </a>
-        </div>
-    </div>
-
-    <div class="representative">
-        <div class="rep-photo">
-            <img src="representative.jpg" alt="代表者 德永良雄">
-            <span style="color:#888; display:none;">代表者写真</span>
-        </div>
-        <div class="rep-text">
-            <h3>代表者あいさつ</h3>
-            <p style="font-weight: bold; margin-bottom: 10px;">代表：德永 良雄（とくなが よしお）</p>
-            <p>私は31年間にわたり公務員として社会の基盤を支える業務に邁進してまいりました。その経験を活かし、より身近な立場で皆様の挑戦をサポートしたいという想いから、2024年12月に行政書士事務所を開設いたしました。</p>
-            <p style="margin-top: 15px;">
-                これまで、<strong>建設業の許認可申請</strong>、<strong>企業の外国人従業員の在留資格（取得・変更）</strong>、そして<strong>相続に関する法的手続きのアドバイス</strong>など、多岐にわたる専門的なご相談を承ってきました。
-            </p>
-            <p style="margin-top: 15px;">
-                行政手続きは複雑ですが、一つひとつの課題を丁寧に紐解き、皆様の「次の一歩」を確かなものにするための伴走者として、誠心誠意努めてまいります。
-            </p>
-        </div>
-    </div>
+<section id="profile">
+<h2>事務所概要</h2>
+<p style="text-align:center;">
+<strong>德永良雄 行政書士事務所</strong><br>
+〒658-0032<br>
+兵庫県神戸市東灘区向洋町中6-9<br>
+<strong>神戸ファッションマート（六甲アイランド）</strong>
+</p>
+<p style="text-align:center;margin-top:10px;">
+<a href="https://www.google.com/maps?q=神戸ファッションマート" target="_blank">
+Googleマップで見る
+</a>
+</p>
 </section>
 
-<section id="business" style="background-color: var(--sky-blue);" class="fade-in">
-    <h2>主な取扱業務</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-        <div style="background: white; padding: 25px; border-radius: 10px; border-top: 5px solid var(--main-blue);">
-            <h3>建設業許可</h3>
-            <p>新規申請・更新手続きをスムーズにサポートします。</p>
-        </div>
-        <div style="background: white; padding: 25px; border-radius: 10px; border-top: 5px solid var(--main-blue);">
-            <h3>在留資格（ビザ）</h3>
-            <p>外国人雇用の専門家として、適切な申請をアドバイスします。</p>
-        </div>
-        <div style="background: white; padding: 25px; border-radius: 10px; border-top: 5px solid var(--main-blue);">
-            <h3>相続・法務相談</h3>
-            <p>相続に伴う法的な手続きや書類作成の支援を行います。</p>
-        </div>
-    </div>
+<section id="business" style="background:var(--bg);">
+<h2>主な取扱業務</h2>
+<ul style="max-width:700px;margin:auto;">
+<li><strong>建設業許可申請</strong>（新規・更新・業種追加）</li>
+<li><strong>在留資格申請</strong>（取得・変更・更新）</li>
+<li><strong>相続に関する手続き</strong>（書類作成・相談対応）</li>
+</ul>
+<p class="notice" style="text-align:center;">
+※ 行政書士法に基づき、訴訟代理・紛争案件には対応できません。
+</p>
 </section>
 
-<section id="company" class="fade-in">
-    <h2>会社概要（セコンドペンギン企画）</h2>
-    <table style="width: 100%; border-collapse: collapse;">
-        <tr style="border-bottom: 1px solid #ddd;"><th style="padding: 15px; text-align: left; width: 30%;">屋号</th><td>セコンドペンギン企画</td></tr>
-        <tr style="border-bottom: 1px solid #ddd;"><th style="padding: 15px; text-align: left;">設立</th><td>2024年6月13日</td></tr>
-        <tr style="border-bottom: 1px solid #ddd;"><th style="padding: 15px; text-align: left;">業務エリア</th><td>全国対応</td></tr>
-    </table>
+<section id="contact">
+<h2>お問い合わせ</h2>
+
+<form action="https://formspree.io/f/xxxxxxxx" method="POST">
+<!-- ↑ Formspreeで取得したURLに置き換えてください -->
+
+<label>お名前（必須）
+<input type="text" name="name" required>
+</label>
+
+<label>メールアドレス（必須）
+<input type="email" name="email" required>
+</label>
+
+<label>ご相談区分
+<select name="category">
+<option>建設業許可</option>
+<option>在留資格</option>
+<option>相続</option>
+<option>その他</option>
+</select>
+</label>
+
+<label>お問い合わせ内容
+<textarea name="message" required></textarea>
+</label>
+
+<p class="notice">
+※ 本フォーム送信をもって受任が成立するものではありません。<br>
+※ 個人情報はお問い合わせ対応の目的にのみ利用します。
+</p>
+
+<div style="text-align:center;margin-top:30px;">
+<button type="submit" class="btn">送信する</button>
+</div>
+</form>
+</section>
+
+<section id="privacy">
+<h2>個人情報保護方針</h2>
+<p style="max-width:800px;margin:auto;font-size:.9rem;">
+当事務所は、お問い合わせの際に取得した個人情報を、
+行政書士業務に関するご連絡および対応の目的にのみ利用します。
+法令に基づく場合を除き、第三者へ提供することはありません。
+</p>
 </section>
 
 <footer>
-    <p>&copy; 2024 Tokunaga Yoshio Administrative Scrivener Office / Second Penguin Kikaku.</p>
+<p>&copy; 2024 德永良雄 行政書士事務所</p>
 </footer>
-
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
