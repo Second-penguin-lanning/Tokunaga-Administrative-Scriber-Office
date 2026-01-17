@@ -87,6 +87,7 @@ h2{
     font-weight:bold;
     border:none;
     cursor:pointer;
+    transition: 0.3s;
 }
 .btn:hover{background:#003f7f;}
 .notice{
@@ -94,24 +95,58 @@ h2{
     color:#555;
     margin-top:15px;
 }
+
+/* --- 修正ポイント：プロフィール写真のスタイル --- */
 .profile-flex{
     display:flex;
     gap:40px;
     max-width:900px;
     margin:auto;
-    align-items:flex-start;
+    align-items:center;
 }
 .photo{
     width:200px;
     height:250px;
     background:#eee;
     border-radius:10px;
+    overflow: hidden; /* はみ出し防止 */
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:0.9rem;
-    color:#777;
+    flex-shrink: 0; /* サイズ固定 */
 }
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 比率を維持して枠を埋める */
+}
+
+/* --- 修正ポイント：お問い合わせフォームのスタイル --- */
+#contact form {
+    max-width: 700px;
+    margin: auto;
+}
+#contact label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+#contact textarea {
+    height: 250px; /* 枠を大きく設定 */
+    resize: vertical; /* 縦方向のみリサイズ可能に */
+}
+
 ul li{
     margin-bottom:10px;
     font-size:1.05rem;
@@ -141,7 +176,7 @@ footer{
     body{font-size:18px;}
     .hero h1{font-size:1.9rem;}
     h2{font-size:1.7rem;}
-    .profile-flex{flex-direction:column;align-items:center;}
+    .profile-flex{flex-direction:column;align-items:center;text-align: center;}
 }
 </style>
 </head>
@@ -192,7 +227,7 @@ Mail：info@second-penguin.com
 <strong>神戸ファッションマート（六甲アイランド）</strong>
 </p>
 <p style="text-align:center;margin-top:10px;">
-<a href="https://www.google.com/maps?q=神戸ファッションマート" target="_blank">
+<a href="https://maps.google.com/?q=神戸ファッションマート" target="_blank">
 Googleマップで見る
 </a>
 </p>
@@ -202,7 +237,7 @@ Googleマップで見る
 <h2>代表者紹介</h2>
 <div class="profile-flex">
 <div class="photo">
-   <img src="私の写真.png" alt="写真">
+   <img src="私の写真.png" alt="代表者写真">
 </div>
 <div>
 <p>
@@ -273,8 +308,8 @@ Googleマップで見る
 </label>
 
 <label>
-お問い合わせ内容
-<textarea name="message" required placeholder="まとまっていなくても大丈夫です。思いつくままご記入ください。"></textarea>
+お問い合わせ内容（必須）
+<textarea name="message" required></textarea>
 </label>
 
 <p class="notice">
@@ -288,7 +323,7 @@ Googleマップで見る
 </section>
 
 <footer>
-<p>&copy; 2024 德永良雄 行政書士事務所</p>
+<p>© 2024 德永良雄 行政書士事務所</p>
 </footer>
 
 </body>
